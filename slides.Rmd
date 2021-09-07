@@ -148,7 +148,7 @@ knitr::include_graphics("img/github_online.png")
 ```
 
 #### Method 1
-1. Create it on GitHub 
+1. **Create it on GitHub** 
 2. Clone it to your local computer
 
 ]
@@ -165,7 +165,7 @@ knitr::include_graphics("img/git_local.png")
 
 
 #### Method 2 
-1. Start in your local computer: `git init`
+1. **Start in your local computer**
 2. Create a new repository on GitHub 
 3. Use Git to tell your local repository where the remote is
 ]
@@ -195,8 +195,8 @@ class: middle, center, inverse
 
 ---
 
-## www.github.com / www.github.ubc.ca
-```{r repo, fig.align='center', echo = FALSE,out.width=400} 
+### www.github.com 
+```{r repo, fig.align='center', echo = FALSE,out.width=500} 
 knitr::include_graphics("img/new_repo.png")
 ```
 
@@ -209,7 +209,7 @@ knitr::include_graphics("img/new_repo.png")
 * To be able to modify the code on your machine, we need to clone the repository
 
 
-```{r repo2, fig.align='center', echo = FALSE,out.width=200} 
+```{r repo2, fig.align='center', echo = FALSE,out.width=700} 
 knitr::include_graphics("img/edit_repo.png")
 ```
 
@@ -225,98 +225,182 @@ class: middle, center
 ### Download or clone a repo?
 
 
-
-
-
 ---
 
-class: middle, center
-
-### Live demo
-
-How to clone a repository from GitHub  
-
-`git clone`  
-
----
-
-## Changing and saving version controlled files
-
-```{r stage, fig.align='center', echo = FALSE, out.width=700} 
-knitr::include_graphics("img/staging_area.png")
+```{r clone, fig.align='center', echo = FALSE,out.width=300} 
+knitr::include_graphics("img/clone.png")
 ```
 
-The staging area allows more control over what you are about to commit
+---
+
+### Make changes to your files in the remote repo on GitHub
+
+
+
+.pull-left[
+
+
+```{r git22, fig.align='center', echo = FALSE, out.width=200} 
+knitr::include_graphics("img/github_online.png")
+```
+
+#### Edit files directly on Github via the web interface
+1. Click on the pen tool 
+2. Edit the file
+3. Provide a commit message 
+4. Click on the button "Commit changes" 
+5. Clone this repo to your local computer
+]
+
+--
+
+.pull-right[
+
+
+```{r git32, fig.align='center', echo = FALSE,out.width=185} 
+knitr::include_graphics("img/git_local.png")
+```
+
+
+
+#### Working locally
+1. Make changes on files you cloned
+2. `git add` add them to the staging area
+3. `git commit` provide a commit message
+4. `git push` the changes to GitHub
+
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
+
+Note that there is no step for adding to the staging area on GitHub.
+The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
+
+]
+
+
+
+
 ---
 
 class: middle, center, inverse
 
-## you first add the changes to the staging area and then commit them 
+#  VIEWING YOUR GIT HISTORY 
+
+---
+
+## `git log`
+#### Viewing the history of a project
+
+```{r gitlog, fig.align='center', echo = FALSE,out.width=700} 
+knitr::include_graphics("img/gitlog.png")
+```
+> You can use `git log --oneline` for more succinct output 
+
+---
+
+class: middle, center, inverse
+
+#  RESTORING AN OLDER VERSION
+---
+
+## Refer to a commit 
+
+* Each commits has a full 40-character SHA-1 hash
+
+```bash
+commit b22d6421363c7b82e2b88b0b5f1f25edca703303
+```
+* You can use a short SHA-1 (at least four characters long and unambiguous)
+
+```bash
+commit b22d
+```
+
+> You can use the command `git show <SHA>` 
+
+.footnote[[Git Tools](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)]
+
 
 
 
 ---
+
+## `git restore`
+#### Restoring an older version of a file
+
+
+```bash
+ git restore -s SHORT_SHA-1 FILENAME
+```
+
+> Do not forget to add and commit the changes!
+
+---
+
 
 class: middle, center
 
 ### Live demo
-##### Changing and saving version controlled files
-
-`git add`
-
-`git commit`
-
-
-
-.footnote[[Software Carpentry](http://swcarpentry.github.io/git-novice/04-changes/)]
 
 ---
 
-## Some `git add` commands
-
-Adds the changes to the staging area
-
-`git add .` - Add all updated and new files  
-
-`git add file.txt` - Add a particular file  
-
---
-
-`git add --all` - Add all updated, new, and deleted files  
-
-`git add -u` - Add all updated and deleted files  
-
-
----
-
-## `git commit`
-
-saves the differences between the current and previous version 
-of the file together with your message describing what you did.
-
-`-m` for short messages from the terminal
-
-
----
-
-
-## Push local changes to Github 
-
-
-To upload the changes to GitHub, you need to "push" them 
-
-`git push`
-
-
----
-
-## Lab assignments (except lab0)
-
-```{r stage2, fig.align='center', echo = FALSE, out.width=700} 
-knitr::include_graphics("img/homework.png")
+```{r pushpull, fig.align='center', echo = FALSE,out.width=700} 
+knitr::include_graphics("img/pushpull.png")
 ```
-.footnote[[General Lab Instructions](https://ubc-mds.github.io/resources_pages/general_lab_instructions/)]
 
+
+
+---
+
+class: middle, center, inverse
+
+# MERGE CONFLICTS
+
+---
+
+## `git pull`
+
+1. **fetch** the content of the remote
+2. **merge** it into your repository
+
+---
+
+
+
+<<<<<<< HEAD precedes the change you made (that you couldn't push)
+======= is a separator between the conflicting changes
+>>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub
+
+
+---
+
+## How do you know you have a merge conflict?
+
+
+
+> Can you have a merge conflict working alone?
+
+---
+
+## What do you do to fix a merge conflict?
+
+---
+
+class: middle, center, inverse
+
+# Stashing 
+#### local non-committed changes before pulling
+
+
+---
+
+```bash
+error: Your local changes to the following files would be overwritten by merge:
+        README.md
+Please commit your changes or stash them before you merge.
+Aborting
+```
 
 ---
 

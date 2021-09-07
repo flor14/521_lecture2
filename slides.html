@@ -97,7 +97,7 @@ class: middle, center, inverse
 &lt;img src="img/github_online.png" width="200" style="display: block; margin: auto;" /&gt;
 
 #### Method 1
-1. Create it on GitHub 
+1. **Create it on GitHub** 
 2. Clone it to your local computer
 
 ]
@@ -112,7 +112,7 @@ class: middle, center, inverse
 
 
 #### Method 2 
-1. Start in your local computer: `git init`
+1. **Start in your local computer**
 2. Create a new repository on GitHub 
 3. Use Git to tell your local repository where the remote is
 ]
@@ -142,8 +142,8 @@ class: middle, center, inverse
 
 ---
 
-## www.github.com / www.github.ubc.ca
-&lt;img src="img/new_repo.png" width="400" style="display: block; margin: auto;" /&gt;
+### www.github.com 
+&lt;img src="img/new_repo.png" width="500" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -154,7 +154,7 @@ class: middle, center, inverse
 * To be able to modify the code on your machine, we need to clone the repository
 
 
-&lt;img src="img/edit_repo.png" width="200" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/edit_repo.png" width="700" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -168,94 +168,172 @@ class: middle, center
 ### Download or clone a repo?
 
 
+---
 
-
+&lt;img src="img/clone.png" width="300" style="display: block; margin: auto;" /&gt;
 
 ---
 
-class: middle, center
+### Make changes to your files in the remote repo on GitHub
 
-### Live demo
 
-How to clone a repository from GitHub  
 
-`git clone`  
+.pull-left[
 
----
 
-## Changing and saving version controlled files
+&lt;img src="img/github_online.png" width="200" style="display: block; margin: auto;" /&gt;
 
-&lt;img src="img/staging_area.png" width="700" style="display: block; margin: auto;" /&gt;
+#### Edit files directly on Github via the web interface
+1. Click on the pen tool 
+2. Edit the file
+3. Provide a commit message 
+4. Click on the button "Commit changes" 
+5. Clone this repo to your local computer
+]
 
-The staging area allows more control over what you are about to commit
+--
+
+.pull-right[
+
+
+&lt;img src="img/git_local.png" width="185" style="display: block; margin: auto;" /&gt;
+
+
+
+#### Working locally
+1. Make changes on files you cloned
+2. `git add` add them to the staging area
+3. `git commit` provide a commit message
+4. `git push` the changes to GitHub
+
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
+
+Note that there is no step for adding to the staging area on GitHub.
+The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
+
+]
+
+
+
+
 ---
 
 class: middle, center, inverse
 
-## you first add the changes to the staging area and then commit them 
+#  VIEWING YOUR GIT HISTORY 
+
+---
+
+## `git log`
+#### Viewing the history of a project
+
+&lt;img src="img/gitlog.png" width="700" style="display: block; margin: auto;" /&gt;
+&gt; You can use `git log --oneline` for more succinct output 
+
+---
+
+class: middle, center, inverse
+
+#  RESTORING AN OLDER VERSION
+---
+
+## Refer to a commit 
+
+* Each commits has a full 40-character SHA-1 hash
+
+```bash
+commit b22d6421363c7b82e2b88b0b5f1f25edca703303
+```
+* You can use a short SHA-1 (at least four characters long and unambiguous)
+
+```bash
+commit b22d
+```
+
+&gt; You can use the command `git show &lt;SHA&gt;` 
+
+.footnote[[Git Tools](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)]
+
 
 
 
 ---
+
+## `git restore`
+#### Restoring an older version of a file
+
+
+```bash
+ git restore -s SHORT_SHA-1 FILENAME
+```
+
+&gt; Do not forget to add and commit the changes!
+
+---
+
 
 class: middle, center
 
 ### Live demo
-##### Changing and saving version controlled files
-
-`git add`
-
-`git commit`
-
-
-
-.footnote[[Software Carpentry](http://swcarpentry.github.io/git-novice/04-changes/)]
 
 ---
 
-## Some `git add` commands
+&lt;img src="img/pushpull.png" width="700" style="display: block; margin: auto;" /&gt;
 
-Adds the changes to the staging area
-
-`git add .` - Add all updated and new files  
-
-`git add file.txt` - Add a particular file  
-
---
-
-`git add --all` - Add all updated, new, and deleted files  
-
-`git add -u` - Add all updated and deleted files  
 
 
 ---
 
-## `git commit`
+class: middle, center, inverse
 
-saves the differences between the current and previous version 
-of the file together with your message describing what you did.
+# MERGE CONFLICTS
 
-`-m` for short messages from the terminal
+---
 
+## `git pull`
+
+1. **fetch** the content of the remote
+2. **merge** it into your repository
 
 ---
 
 
-## Push local changes to Github 
 
-
-To upload the changes to GitHub, you need to "push" them 
-
-`git push`
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn't push)
+======= is a separator between the conflicting changes
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub
 
 
 ---
 
-## Lab assignments (except lab0)
+## How do you know you have a merge conflict?
 
-&lt;img src="img/homework.png" width="700" style="display: block; margin: auto;" /&gt;
-.footnote[[General Lab Instructions](https://ubc-mds.github.io/resources_pages/general_lab_instructions/)]
 
+
+&gt; Can you have a merge conflict working alone?
+
+---
+
+## What do you do to fix a merge conflict?
+
+---
+
+class: middle, center, inverse
+
+# Stashing 
+#### local non-committed changes before pulling
+
+
+---
+
+```bash
+error: Your local changes to the following files would be overwritten by merge:
+        README.md
+Please commit your changes or stash them before you merge.
+Aborting
+```
 
 ---
 
