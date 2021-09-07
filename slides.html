@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>DSCI 521 - Lecture 1</title>
+    <title>DSCI 521 - Lecture 2</title>
     <meta charset="utf-8" />
     <meta name="author" content="MDS 2021/22" />
     <script src="libs/header-attrs/header-attrs.js"></script>
@@ -21,8 +21,6 @@
     <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
-    <link href="libs/countdown/countdown.css" rel="stylesheet" />
-    <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -44,315 +42,134 @@ class: middle, center
 
 
 ---
-class: inverse, middle, center
-
-
-
-
- ☕ ?
-
-### Starting in ...
-<div class="countdown" id="timer_61323087" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
-
----
 
 
 class: bottom
 
 .bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
-### DSCI 521 - Lecture 1
-### **Shell, Git, GitHub**
+### DSCI 521 - Lecture 2
+### **Getting groovy with Git and GitHub**
 
  .large[#### Computing Platforms for Data Science - UBC MDS 2021/22
 ]]
 
 ---
 
-## Lecture 1
+## Lecture 2
 
-#### * Software used in MDS
-
+1. Create a **new repository** on GitHub via the web interface
 
 --
 
-#### * Use Bash to navigate the computer's file system
-    - Absolute and relative file paths
-    
+
+2. `git log` and `git restore`
+
 --
 
-#### * Git for version control
-    - Including clone, add, commit, pull, and push
-    - Access, edit and submit assignments via GitHub.
+3. Deal with **merge conflicts** at the command line and in VS Code
+
+--
+
+4. Stash your changes with `git stash` before pulling from GitHub
 
 ---
 
-class: middle
+## using git
 
-## The MDS software stack
+&lt;img src="img/gitgithub.png" width="250" style="display: block; margin: auto;" /&gt;
 
-#### * Bash
-#### * Git
-#### * Python and R
-#### * VS code, JupyterLab, and RStudio
+
+
+
 
 ---
-
 class: middle, center, inverse
 
-## Open Source programs
 
-Anyone can read the source code and contribute to these projects
-
+# CREATING A REPOSITORY
 
 ---
 
 
-
-## Open Source programs
-
-* Use the software without paying exorbitant amounts of money
-
---
-* Having access to the source code 
-
---
-* Open Source software is customizable and flexible
-
---
-* It's becoming the standard in many tech companies
-
---
-* You are part of an awesome and active community!
+.pull-left[
 
 
----
+&lt;img src="img/github_online.png" width="200" style="display: block; margin: auto;" /&gt;
 
-class: middle, center, inverse
+#### Method 1
+1. Create it on GitHub 
+2. Clone it to your local computer
 
-# Introduction to Computing
-
----
-
-&lt;img src="img/computing.png" width="600" style="display: block; margin: auto;" /&gt;
-.footnote[Ester Gerston and Gloria Gordon (1946) U.S. Army/ARL Technical Library Archives] 
-    
----
-
-
-
-&lt;img src="img/computer.jpeg" width="600" style="display: block; margin: auto;" /&gt;
-
-.footnote[[Photo by Pixabay from Pexels](https://www.pexels.com/photo/silver-imac-apple-magic-keyboard-and-magic-mouse-on-wooden-table-38568/)]
-
-
----
-
-## Computer comunication
-
-&lt;img src="img/computer-1.png" width="700" style="display: block; margin: auto;" /&gt;
-
----
-
-
-## Computer comunication
-
-&lt;img src="img/computer_and_machine.png" width="700" style="display: block; margin: auto;" /&gt;
-
----
-
-class: middle, center, inverse
-
-# Advantages of text-based shells
-
-* Facilitate human interaction with the computer
-
-
----
-
-&lt;img src="img/win-terminals.png" width="600" style="display: block; margin: auto;" /&gt;
-
-&lt;img src="img/mac-terminal.png" width="600" style="display: block; margin: auto;" /&gt;
-
-.footnote[[Command line crash course - Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line)
-] 
-   
-
-
----
-
-class: middle, center
-
-#### GUI are nice when you are new to something,
+]
 
 --
 
-#### but text-based interfaces are actually faster and easier 
-
----
-
-class: middle, center
-
-# B·A·S·H
-### the most commonly used text shell
-
----
-
-class: middle, center
-
-&lt;img src="img/bash.png" width="600" style="display: block; margin: auto;" /&gt;
+.pull-right[
 
 
-.footnote[[Official Bash logo](https://github.com/odb/official-bash-logo)]
-
-
----
+&lt;img src="img/git_local.png" width="185" style="display: block; margin: auto;" /&gt;
 
 
 
-### Navigation and manipulation the filesystem usign Bash
+#### Method 2 
+1. Start in your local computer: `git init`
+2. Create a new repository on GitHub 
+3. Use Git to tell your local repository where the remote is
+]
 
-
-Navigating the filesystem can be done:
 
 --
 
-* via your visual operating system's user interface
-(e.g., Finder, Explorer, Nautilus, etc)
 
---
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
 
-* Using a text-based shell such as Bash...
+**Method 1** is usually the most convenient 
 
----
-
-class: middle, center, inverse
-
-## Live demo
+]
 
 
 
-
----
-
-## Commands
-
-
-&lt;img src="img/commands.png" width="500" style="display: block; margin: auto;" /&gt;
-
-
----
-
-## Commands
-
-&lt;img src="img/commands2.png" width="300" style="display: block; margin: auto;" /&gt;
-
----
-
-
-
-## Some tips
-
-* Press `TAB` to automatically complete commands and file names as you are typing.
-
-* Help: `man &lt;your_command&gt;` or `&lt;your_command&gt; --help`
-
-* Up arrow to search for old commands
-
----
-
-## Relative and absolute path
-
-```bash
-$pwd
-/c/Users/Florencia/
-```
-```bash
-$ cd folder1 
-```
-This command tries to find `folder1` inside `Florencia` folder
-
-**RELATIVE PATH**
-
---
-```bash
-cd /c/Users/Florencia/folder1 
-```
-This command will find `folder1` no matter where you are
-
-**ABSOLUTE PATH**
 
 
 ---
 
 class: middle, center, inverse
 
-# Introduction to local and remote version control software
 
-
-
----
-
-## Why version control?
-
-
-&lt;img src="img/phd.png" width="300" style="display: block; margin: auto;" /&gt;
-
-.footnote[[“Piled Higher and Deeper” by Jorge Cham](http://www.phdcomics.com)]
-
----
-
-## Automatic version control (example)
-
-![](https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/make_copies.gif)
-.footnote[[Version control to Major Tom—keeping track of work in G Suite](https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/make_copies.gif)]
+# CREATING A REPOSITORY
+### from GitHub
 
 
 ---
 
-class: middle, center
-
-&lt;img src="img/gitlogo.png" width="300" style="display: block; margin: auto;" /&gt;
-
-&lt;img src="img/github2.png" width="300" style="display: block; margin: auto;" /&gt;
-
-.footnote[[Git logo](https://git-scm.com/downloads/logos)]
+## www.github.com / www.github.ubc.ca
+&lt;img src="img/new_repo.png" width="400" style="display: block; margin: auto;" /&gt;
 
 ---
-
-## GitHub for MDS assignments
-
-There are 2 ways to start working with a Git repository 
-
-1. create a new one
- 
-2. download an existing one
-
----
-
-
-## GitHub for MDS assignments
-
-There are 2 ways to start working with a Git repository 
-
-1. create a new one
- 
-**2. download an existing one**
- 
-
-**CLONING**
-
----
-
-
 
 ## Cloning repositories from GitHub
 
-* You can use GitHub to edit if you have minor changes
+* You can use GitHub to edit if you have minor changes. 
 
 * To be able to modify the code on your machine, we need to clone the repository
+
+
+&lt;img src="img/edit_repo.png" width="200" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+
+
+
+class: middle, center
+
+### Download or clone a repo?
+
+
+
+
 
 ---
 
