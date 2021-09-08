@@ -119,10 +119,21 @@ class: bottom
 
 4. Stash your changes with `git stash` before pulling from GitHub
 
+
 ---
 
 
+## Lecture 1
 
+**git add**
+
+**git commit**
+
+**git push**
+
+
+
+---
 ```{r git, fig.align='center', echo = FALSE,out.width=250} 
 knitr::include_graphics("img/gitgithub.png")
 ```
@@ -217,20 +228,22 @@ knitr::include_graphics("img/edit_repo.png")
 
 ---
 
-```{r clone, fig.align='center', echo = FALSE,out.width=500} 
+```{r clone, fig.align='center', echo = FALSE,out.width=350} 
 knitr::include_graphics("img/clone.png")
 ```
 ---
+
+class: middle, center
 
 ## Download or clone?
 
 --
 
-* Downloading a repository just downloads the files from the most recent commit
+Downloading a repository just **downloads the files** from the most recent commit
 
 --
 
-* When you clone a repository your a downloading a functional git repo and the project history
+Cloning a repository downloads a **functional git** repo and the **project history**
 
 
 
@@ -266,6 +279,9 @@ class: middle, center, inverse
 ```bash
 commit b22d6421363c7b82e2b88b0b5f1f25edca703303
 ```
+
+--
+
 * You can use a short SHA-1 (at least four characters long and unambiguous)
 
 ```bash
@@ -295,7 +311,6 @@ commit b22d
 ---
 
 
-##  Comparison
 ### Make changes to your files in the remote repo on GitHub
 
 
@@ -306,12 +321,11 @@ commit b22d
 knitr::include_graphics("img/github_online.png")
 ```
 
-#### Edit files directly on Github via the web interface
+##### Edit files directly on Github via the web interface
 1. Click on the pen tool 
 2. Edit the file
 3. Provide a commit message 
 4. Click on the button "Commit changes" 
-5. Clone this repo to your local computer
 ]
 
 --
@@ -325,7 +339,7 @@ knitr::include_graphics("img/git_local.png")
 
 
 
-#### Working locally
+##### Working locally
 1. Make changes on files you cloned
 2. `git add` add them to the staging area
 3. `git commit` provide a commit message
@@ -333,26 +347,26 @@ knitr::include_graphics("img/git_local.png")
 
 ]
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
-
-Note that there is no step for adding to the staging area on GitHub.
-The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
-
-]
-
-
-
 ---
 
 
 class: middle, center
 
-### Live demo
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
+
+Note that there is no step for adding to the staging area on GitHub.
+
+
+The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
+
+]
 
 
 ---
 
-## Should I clone the repo each time there is a change in the remote repository?
+class: middle, center
+
+### Should I clone the repo each time there is a change in the remote repository?
 
 --
 
@@ -368,11 +382,22 @@ knitr::include_graphics("img/pushpull.png")
 
 ---
 
-1. Changes to a document where different lines are modified 
-**Git can automatically merge these and will do so when you pull**
+## Scenarios
 
-2. Changes to a document where the same line(s) are modified 
-**Git CANNOT automatically merge these**
+
+1. Changes to a document where different lines are modified  
+
+--
+
+**Git can automatically merge the changes**
+
+--
+
+2. Changes to a document where the same line(s) are modified  
+
+--
+
+**Git CANNOT automatically merge the changes**
 **MERGE CONFLICT**
 
 ---
@@ -386,24 +411,28 @@ class: middle, center, inverse
 
 ## `git pull`
 
+
 1. **fetch** the content of the remote
 2. **merge** it into your repository
 
 ---
 
-```{r mc, fig.align='center', echo = FALSE,out.width=300} 
+```{r mc, fig.align='center', echo = FALSE,out.width=700} 
 knitr::include_graphics("img/mc_gitpush.png")
 ```
 
 > What happens if I try to pull?
 
-The problem could be solved ... or you can have a merge conflict!
+Scenario 1 = git pull
+Scenario 2 = merge conflict!
 
 ---
 
-## VS Code to solve merge conflicts
+## VS Code to fix merge conflicts
 
-```{r mcvs, fig.align='center', echo = FALSE,out.width=300} 
+what changes you want to keep?
+
+```{r mcvs, fig.align='center', echo = FALSE,out.width=700} 
 knitr::include_graphics("img/mcvscode.png")
 ```
 
@@ -411,18 +440,10 @@ knitr::include_graphics("img/mcvscode.png")
 ---
 
 
----
+class: middle, center
 
-## How do you know you have a merge conflict?
-
-
-
-> Can you have a merge conflict working alone?
-
----
-
-## What do you do to fix a merge conflict?
-
+### It is a good idea to pull before starting to work in your local changes!
+But what happens if you forget?
 ---
 
 class: middle, center, inverse
@@ -442,6 +463,13 @@ Aborting
 
 ---
 
+Please **commit your changes** or **stash** them before you merge.
+
+
+
+---
+
+
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[ 
 
 ## Attribution
@@ -458,3 +486,7 @@ Aborting
 class: inverse, middle, center
 
 # Thank you!
+
+
+##### Florencia D'Andrea
+##### fdandrea@cs.ubc.ca

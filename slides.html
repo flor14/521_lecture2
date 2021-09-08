@@ -72,10 +72,21 @@ class: bottom
 
 4. Stash your changes with `git stash` before pulling from GitHub
 
+
 ---
 
 
+## Lecture 1
 
+**git add**
+
+**git commit**
+
+**git push**
+
+
+
+---
 &lt;img src="img/gitgithub.png" width="250" style="display: block; margin: auto;" /&gt;
 
 
@@ -160,18 +171,20 @@ class: middle, center, inverse
 
 ---
 
-&lt;img src="img/clone.png" width="500" style="display: block; margin: auto;" /&gt;
+&lt;img src="img/clone.png" width="350" style="display: block; margin: auto;" /&gt;
 ---
+
+class: middle, center
 
 ## Download or clone?
 
 --
 
-* Downloading a repository just downloads the files from the most recent commit
+Downloading a repository just **downloads the files** from the most recent commit
 
 --
 
-* When you clone a repository your a downloading a functional git repo and the project history
+Cloning a repository downloads a **functional git** repo and the **project history**
 
 
 
@@ -205,6 +218,9 @@ class: middle, center, inverse
 ```bash
 commit b22d6421363c7b82e2b88b0b5f1f25edca703303
 ```
+
+--
+
 * You can use a short SHA-1 (at least four characters long and unambiguous)
 
 ```bash
@@ -234,7 +250,6 @@ commit b22d
 ---
 
 
-##  Comparison
 ### Make changes to your files in the remote repo on GitHub
 
 
@@ -243,12 +258,11 @@ commit b22d
 
 &lt;img src="img/github_online.png" width="125" style="display: block; margin: auto;" /&gt;
 
-#### Edit files directly on Github via the web interface
+##### Edit files directly on Github via the web interface
 1. Click on the pen tool 
 2. Edit the file
 3. Provide a commit message 
 4. Click on the button "Commit changes" 
-5. Clone this repo to your local computer
 ]
 
 --
@@ -260,7 +274,7 @@ commit b22d
 
 
 
-#### Working locally
+##### Working locally
 1. Make changes on files you cloned
 2. `git add` add them to the staging area
 3. `git commit` provide a commit message
@@ -268,26 +282,26 @@ commit b22d
 
 ]
 
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
-
-Note that there is no step for adding to the staging area on GitHub.
-The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
-
-]
-
-
-
 ---
 
 
 class: middle, center
 
-### Live demo
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
+
+Note that there is no step for adding to the staging area on GitHub.
+
+
+The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
+
+]
 
 
 ---
 
-## Should I clone the repo each time there is a change in the remote repository?
+class: middle, center
+
+### Should I clone the repo each time there is a change in the remote repository?
 
 --
 
@@ -299,7 +313,25 @@ Update repo with changes made to the remote repository
 
 &lt;img src="img/pushpull.png" width="700" style="display: block; margin: auto;" /&gt;
 
+---
 
+## Scenarios
+
+
+1. Changes to a document where different lines are modified  
+
+--
+
+**Git can automatically merge the changes**
+
+--
+
+2. Changes to a document where the same line(s) are modified  
+
+--
+
+**Git CANNOT automatically merge the changes**
+**MERGE CONFLICT**
 
 ---
 
@@ -312,30 +344,35 @@ class: middle, center, inverse
 
 ## `git pull`
 
+
 1. **fetch** the content of the remote
 2. **merge** it into your repository
 
 ---
 
+&lt;img src="img/mc_gitpush.png" width="700" style="display: block; margin: auto;" /&gt;
 
+&gt; What happens if I try to pull?
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD precedes the change you made (that you couldn't push)
-======= is a separator between the conflicting changes
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub
+Scenario 1 = git pull
+Scenario 2 = merge conflict!
+
+---
+
+## VS Code to fix merge conflicts
+
+what changes you want to keep?
+
+&lt;img src="img/mcvscode.png" width="700" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
-## How do you know you have a merge conflict?
 
+class: middle, center
 
-
-&gt; Can you have a merge conflict working alone?
-
----
-
-## What do you do to fix a merge conflict?
-
+### It is a good idea to pull before starting to work in your local changes!
+But what happens if you forget?
 ---
 
 class: middle, center, inverse
@@ -355,6 +392,13 @@ Aborting
 
 ---
 
+Please **commit your changes** or **stash** them before you merge.
+
+
+
+---
+
+
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[ 
 
 ## Attribution
@@ -371,6 +415,10 @@ Aborting
 class: inverse, middle, center
 
 # Thank you!
+
+
+##### Florencia D'Andrea
+##### fdandrea@cs.ubc.ca
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
