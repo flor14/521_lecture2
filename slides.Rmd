@@ -123,6 +123,27 @@ class: bottom
 ---
 
 
+class: center, middle
+
+```{r obj2, fig.align='center', echo = FALSE,out.width=900} 
+knitr::include_graphics("img/obj2.png")
+```
+
+
+.footnote[[images: Unsplash](https://unsplash.com)]
+---
+
+
+class: center, middle
+
+```{r obj, fig.align='center', echo = FALSE,out.width=900} 
+knitr::include_graphics("img/obj1.png")
+```
+
+.footnote[[images: Unsplash](https://unsplash.com)]
+---
+
+
 ## Lecture 1
 
 **git add**
@@ -417,13 +438,16 @@ class: middle, center, inverse
 
 ---
 
-```{r mc, fig.align='center', echo = FALSE,out.width=700} 
+## When you try to push...
+
+```{r mc, fig.align='center', echo = FALSE,out.width=900} 
 knitr::include_graphics("img/mc_gitpush.png")
 ```
 
 > What happens if I try to pull?
 
-Scenario 1 = git pull
+Scenario 1 = problem solved  
+
 Scenario 2 = merge conflict!
 
 ---
@@ -432,7 +456,7 @@ Scenario 2 = merge conflict!
 
 what changes you want to keep?
 
-```{r mcvs, fig.align='center', echo = FALSE,out.width=700} 
+```{r mcvs, fig.align='center', echo = FALSE,out.width=900} 
 knitr::include_graphics("img/mcvscode.png")
 ```
 
@@ -451,19 +475,12 @@ class: middle, center, inverse
 # Stashing 
 #### local non-committed changes before pulling
 
-
 ---
 
-```bash
-error: Your local changes to the following files would be overwritten by merge:
-        README.md
-Please commit your changes or stash them before you merge.
-Aborting
-```
+class: middle, center
 
----
 
-Please **commit your changes** or **stash** them before you merge.
+#### Please **commit your changes** or **stash** them before you merge.
 
 
 
@@ -481,6 +498,18 @@ Please **commit your changes** or **stash** them before you merge.
 ]
 
 
+
+---
+
+class: inverse, middle, center
+
+## Tips lab 1
+
+Practice on your computer!
+
+Remember the office hours
+
+
 ---
 
 class: inverse, middle, center
@@ -488,5 +517,7 @@ class: inverse, middle, center
 # Thank you!
 
 
-##### Florencia D'Andrea
-##### fdandrea@cs.ubc.ca
+
+
+#### Florencia D'Andrea
+#### fdandrea @ cs.ubc.ca
