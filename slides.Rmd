@@ -109,7 +109,7 @@ class: bottom
 --
 
 
-2. `git log` and `git restore`
+2. View your Git history via `git log` and restore an older version of a file via `git restore` 
 
 --
 
@@ -121,7 +121,7 @@ class: bottom
 
 ---
 
-## using git
+
 
 ```{r git, fig.align='center', echo = FALSE,out.width=250} 
 knitr::include_graphics("img/gitgithub.png")
@@ -199,14 +199,15 @@ class: middle, center, inverse
 ```{r repo, fig.align='center', echo = FALSE,out.width=500} 
 knitr::include_graphics("img/new_repo.png")
 ```
-
 ---
 
-## Cloning repositories from GitHub
+
+
+## Edit files directly on Github via the web interface
 
 * You can use GitHub to edit if you have minor changes. 
 
-* To be able to modify the code on your machine, we need to clone the repository
+
 
 
 ```{r repo2, fig.align='center', echo = FALSE,out.width=700} 
@@ -214,69 +215,23 @@ knitr::include_graphics("img/edit_repo.png")
 ```
 
 
-
 ---
 
-
-
-
-class: middle, center
-
-### Download or clone a repo?
-
-
----
-
-```{r clone, fig.align='center', echo = FALSE,out.width=300} 
+```{r clone, fig.align='center', echo = FALSE,out.width=500} 
 knitr::include_graphics("img/clone.png")
 ```
-
 ---
 
-### Make changes to your files in the remote repo on GitHub
-
-
-
-.pull-left[
-
-
-```{r git22, fig.align='center', echo = FALSE, out.width=200} 
-knitr::include_graphics("img/github_online.png")
-```
-
-#### Edit files directly on Github via the web interface
-1. Click on the pen tool 
-2. Edit the file
-3. Provide a commit message 
-4. Click on the button "Commit changes" 
-5. Clone this repo to your local computer
-]
+## Download or clone?
 
 --
 
-.pull-right[
+* Downloading a repository just downloads the files from the most recent commit
 
+--
 
-```{r git32, fig.align='center', echo = FALSE,out.width=185} 
-knitr::include_graphics("img/git_local.png")
-```
+* When you clone a repository your a downloading a functional git repo and the project history
 
-
-
-#### Working locally
-1. Make changes on files you cloned
-2. `git add` add them to the staging area
-3. `git commit` provide a commit message
-4. `git push` the changes to GitHub
-
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
-
-Note that there is no step for adding to the staging area on GitHub.
-The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
-
-]
 
 
 
@@ -317,7 +272,7 @@ commit b22d6421363c7b82e2b88b0b5f1f25edca703303
 commit b22d
 ```
 
-> You can use the command `git show <SHA>` 
+>  `git show SHORT_SHA-1` 
 
 .footnote[[Git Tools](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)]
 
@@ -336,6 +291,57 @@ commit b22d
 
 > Do not forget to add and commit the changes!
 
+
+---
+
+
+##  Comparison
+### Make changes to your files in the remote repo on GitHub
+
+
+.pull-left[
+
+
+```{r git22, fig.align='center', echo = FALSE, out.width=125} 
+knitr::include_graphics("img/github_online.png")
+```
+
+#### Edit files directly on Github via the web interface
+1. Click on the pen tool 
+2. Edit the file
+3. Provide a commit message 
+4. Click on the button "Commit changes" 
+5. Clone this repo to your local computer
+]
+
+--
+
+.pull-right[
+
+
+```{r git32, fig.align='center', echo = FALSE,out.width=100} 
+knitr::include_graphics("img/git_local.png")
+```
+
+
+
+#### Working locally
+1. Make changes on files you cloned
+2. `git add` add them to the staging area
+3. `git commit` provide a commit message
+4. `git push` the changes to GitHub
+
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
+
+Note that there is no step for adding to the staging area on GitHub.
+The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
+
+]
+
+
+
 ---
 
 
@@ -343,19 +349,38 @@ class: middle, center
 
 ### Live demo
 
+
+---
+
+## Should I clone the repo each time there is a change in the remote repository?
+
+--
+
+`git pull` 
+
+Update repo with changes made to the remote repository
+
 ---
 
 ```{r pushpull, fig.align='center', echo = FALSE,out.width=700} 
 knitr::include_graphics("img/pushpull.png")
 ```
 
+---
 
+1. Changes to a document where different lines are modified 
+**Git can automatically merge these and will do so when you pull**
+
+2. Changes to a document where the same line(s) are modified 
+**Git CANNOT automatically merge these**
+**MERGE CONFLICT**
 
 ---
 
 class: middle, center, inverse
 
 # MERGE CONFLICTS
+
 
 ---
 
@@ -366,11 +391,24 @@ class: middle, center, inverse
 
 ---
 
+```{r mc, fig.align='center', echo = FALSE,out.width=300} 
+knitr::include_graphics("img/mc_gitpush.png")
+```
+
+> What happens if I try to pull?
+
+The problem could be solved ... or you can have a merge conflict!
+
+---
+
+## VS Code to solve merge conflicts
+
+```{r mcvs, fig.align='center', echo = FALSE,out.width=300} 
+knitr::include_graphics("img/mcvscode.png")
+```
 
 
-<<<<<<< HEAD precedes the change you made (that you couldn't push)
-======= is a separator between the conflicting changes
->>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d flags the end of the conflicting change you pulled from GitHub
+---
 
 
 ---

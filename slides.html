@@ -62,7 +62,7 @@ class: bottom
 --
 
 
-2. `git log` and `git restore`
+2. View your Git history via `git log` and restore an older version of a file via `git restore` 
 
 --
 
@@ -74,7 +74,7 @@ class: bottom
 
 ---
 
-## using git
+
 
 &lt;img src="img/gitgithub.png" width="250" style="display: block; margin: auto;" /&gt;
 
@@ -144,76 +144,35 @@ class: middle, center, inverse
 
 ### www.github.com 
 &lt;img src="img/new_repo.png" width="500" style="display: block; margin: auto;" /&gt;
-
 ---
 
-## Cloning repositories from GitHub
+
+
+## Edit files directly on Github via the web interface
 
 * You can use GitHub to edit if you have minor changes. 
 
-* To be able to modify the code on your machine, we need to clone the repository
+
 
 
 &lt;img src="img/edit_repo.png" width="700" style="display: block; margin: auto;" /&gt;
 
 
-
 ---
 
-
-
-
-class: middle, center
-
-### Download or clone a repo?
-
-
+&lt;img src="img/clone.png" width="500" style="display: block; margin: auto;" /&gt;
 ---
 
-&lt;img src="img/clone.png" width="300" style="display: block; margin: auto;" /&gt;
-
----
-
-### Make changes to your files in the remote repo on GitHub
-
-
-
-.pull-left[
-
-
-&lt;img src="img/github_online.png" width="200" style="display: block; margin: auto;" /&gt;
-
-#### Edit files directly on Github via the web interface
-1. Click on the pen tool 
-2. Edit the file
-3. Provide a commit message 
-4. Click on the button "Commit changes" 
-5. Clone this repo to your local computer
-]
+## Download or clone?
 
 --
 
-.pull-right[
+* Downloading a repository just downloads the files from the most recent commit
 
+--
 
-&lt;img src="img/git_local.png" width="185" style="display: block; margin: auto;" /&gt;
+* When you clone a repository your a downloading a functional git repo and the project history
 
-
-
-#### Working locally
-1. Make changes on files you cloned
-2. `git add` add them to the staging area
-3. `git commit` provide a commit message
-4. `git push` the changes to GitHub
-
-]
-
-.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
-
-Note that there is no step for adding to the staging area on GitHub.
-The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
-
-]
 
 
 
@@ -252,7 +211,7 @@ commit b22d6421363c7b82e2b88b0b5f1f25edca703303
 commit b22d
 ```
 
-&gt; You can use the command `git show &lt;SHA&gt;` 
+&gt;  `git show SHORT_SHA-1` 
 
 .footnote[[Git Tools](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)]
 
@@ -271,12 +230,70 @@ commit b22d
 
 &gt; Do not forget to add and commit the changes!
 
+
+---
+
+
+##  Comparison
+### Make changes to your files in the remote repo on GitHub
+
+
+.pull-left[
+
+
+&lt;img src="img/github_online.png" width="125" style="display: block; margin: auto;" /&gt;
+
+#### Edit files directly on Github via the web interface
+1. Click on the pen tool 
+2. Edit the file
+3. Provide a commit message 
+4. Click on the button "Commit changes" 
+5. Clone this repo to your local computer
+]
+
+--
+
+.pull-right[
+
+
+&lt;img src="img/git_local.png" width="100" style="display: block; margin: auto;" /&gt;
+
+
+
+#### Working locally
+1. Make changes on files you cloned
+2. `git add` add them to the staging area
+3. `git commit` provide a commit message
+4. `git push` the changes to GitHub
+
+]
+
+.bg-washed-blue.b--dark-blue.ba.bw2.br3.shadow-5.ph4.mt5[
+
+Note that there is no step for adding to the staging area on GitHub.
+The button "Commit changes" to save your work is essentially `git add` + `git commit` in one click.
+
+]
+
+
+
 ---
 
 
 class: middle, center
 
 ### Live demo
+
+
+---
+
+## Should I clone the repo each time there is a change in the remote repository?
+
+--
+
+`git pull` 
+
+Update repo with changes made to the remote repository
 
 ---
 
@@ -289,6 +306,7 @@ class: middle, center
 class: middle, center, inverse
 
 # MERGE CONFLICTS
+
 
 ---
 
